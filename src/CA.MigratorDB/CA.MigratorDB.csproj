@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>CA.MigratorDB</AssemblyName>
+    <RootNamespace>CA.MigratorDB</RootNamespace>
+    <NoWarn>1701;1702;NU1701;1701;1571;1723;1710;1702;1573;1572;0414;0169;1591;0219;8002</NoWarn>
+
+    <!-- Información del ensamblado. -->
+    <Version>1.0.24.6035</Version>
+    <AssemblyVersion>1.0.24.6035</AssemblyVersion>
+    <FileVersion>1.0.24.6035</FileVersion>
+    <Company>Hogar S.A. de C.V.</Company>
+    <Authors>Olimpo Bonilla Ramírez</Authors>
+    <Product>CleanArchitecture.MigratorDB.dll</Product>
+    <Description>Consola de migración de Bases de Datos para Clean Architecture Project.</Description>
+    <Copyright>© Olimpo Bonilla Ramírez. 2016-2021. All rights reserved.</Copyright>
+    <PackageReleaseNotes>Version: 1.0.24.6035. Date: 2021/08/28.</PackageReleaseNotes>
+    <PackageTags>CleanArchitecture, CleanArchitecture.MigratorDB.dll</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <!-- Otras configuraciones adicionales. -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GenerateAssemblyTitleAttribute>true</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>true</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>true</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>true</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>true</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>true</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyVersionAttribute>true</GenerateAssemblyVersionAttribute>
+    <StartupObject>CA.MigratorDB.Program</StartupObject>
+  </PropertyGroup>
+
+  <!-- Carpetas y archivos adicionales que se deben de publicar cuando es modo Debug o Release. -->
+  <ItemGroup>
+    <None Update="AppSettings.json" CopyToOutputDirectory="Always" CopyToPublishDirectory="Always" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dbup-core" Version="4.5.0" />
+    <PackageReference Include="dbup-mysql" Version="4.5.0" />
+    <PackageReference Include="dbup-sqlserver" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.JSON" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="5.0.0" />
+  </ItemGroup>
+ 
+  <!-- Scripts SQL. -->
+  <ItemGroup>
+    <EmbeddedResource Include="SQLScripts\BeforeDeployment\*.sql" />
+    <EmbeddedResource Include="SQLScripts\Deployment\*.sql" />
+    <EmbeddedResource Include="SQLScripts\PostDeployment\*.sql" />
+  </ItemGroup>
+</Project>
